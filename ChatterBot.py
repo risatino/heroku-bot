@@ -10,10 +10,12 @@ consumer_secret = os.getenv("consumer_secret")
 access_token = os.getenv("access_token")
 access_token_secret = os.getenv("access_token_secret")
 
+
 # Setup Tweepy API Authentication
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth, parser=tweepy.parsers.JSONParser())
+
 
 # Create a function that tweets
 # Create a function that tweets
@@ -21,6 +23,7 @@ def TweetOut(tweet_number):
     api.update_status(
         "Can't stop. Won't stop. Chatting! This is Tweet #%s!" %
         tweet_number)
+
 
 # Create a function that calls the TweetOut function every minute
 counter = 0
